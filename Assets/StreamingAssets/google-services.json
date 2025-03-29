@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296707155400",
+    "project_id": "arogya-4327f",
+    "storage_bucket": "arogya-4327f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296707155400:android:d0f8c4abc247112ec60cfd",
+        "android_client_info": {
+          "package_name": "com.arogya.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxHK2Rus2FT5tnqw6neB_iQKbYkZbef0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
