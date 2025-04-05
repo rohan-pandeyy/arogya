@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LandingPageScene.unity
     guid: 71ffabe38f8e519459ce52900e3ea3fe
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 656253bcbb27cdb45ae7ba7cc01ffe94, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 5ce13ec0617e9b542a717e5c28cfa4cb, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 1f6a36ab0c1f8d24bb341a0ceada9a2f, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c16418c348cad594f8f3108642575f54, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
