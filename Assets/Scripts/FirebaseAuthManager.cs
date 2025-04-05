@@ -71,4 +71,38 @@ public class FirebaseAuthManager : MonoBehaviour
             Debug.LogError("Signup Failed: " + ex.Message);
         }
     }
+
+    public async void SignInUser()
+    {
+        if (!firebaseInitialized || auth == null)
+        {
+            Debug.LogError("Firebase is not initialized yet!");
+            return;
+        }
+
+        string email = emailInput.text;
+        string password = passwordInput.text;
+
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        {
+            Debug.LogWarning("Please enter email and password.");
+            return;
+        }
+
+        try
+        {
+            var authResult = await auth.SignInWithEmailAndPasswordAsync(email, password);
+            user = authResult.User;
+
+            Debug.Log("Sign-in Successful: " + user.Email);
+            Debug.Log("About to load LandingPageScene...");
+
+            // ✅ Make sure this scene name matches exactly (case-sensitive!)
+            SceneManager.LoadScene("LandingPageScene");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Sign-in Failed: " + ex.Message);
+        }
+    }
 }
