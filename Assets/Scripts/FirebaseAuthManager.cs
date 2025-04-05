@@ -3,7 +3,8 @@ using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
 using TMPro;
-using System.Threading.Tasks; // 🔧 Required for Task<T>
+using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class FirebaseAuthManager : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class FirebaseAuthManager : MonoBehaviour
 
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
-    public TMP_InputField firstNameInput;
 
     void Start()
     {
@@ -25,9 +25,6 @@ public class FirebaseAuthManager : MonoBehaviour
             if (dependencyStatus == DependencyStatus.Available)
             {
                 FirebaseApp app = FirebaseApp.DefaultInstance;
-
-                // ✅ Set the Realtime Database URL
-                //app.Options.DatabaseUrl = new System.Uri("https://arogya-4327f-default-rtdb.firebaseio.com/");
 
                 auth = FirebaseAuth.DefaultInstance;
                 dbReference = FirebaseDatabase.GetInstance("https://arogya-4327f-default-rtdb.firebaseio.com/").RootReference;
@@ -42,7 +39,7 @@ public class FirebaseAuthManager : MonoBehaviour
         });
     }
 
-    public void SignUpUser()
+    public async void SignUpUser()
     {
         if (!firebaseInitialized || auth == null)
         {
@@ -52,45 +49,26 @@ public class FirebaseAuthManager : MonoBehaviour
 
         string email = emailInput.text;
         string password = passwordInput.text;
-        string firstName = firstNameInput.text;
 
-        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(firstName))
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {
-            Debug.LogWarning("Please enter email, password, and first name.");
+            Debug.LogWarning("Please enter email and password.");
             return;
         }
 
-        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task =>
+        try
         {
-            if (task.IsCanceled || task.IsFaulted)
-            {
-                Debug.LogError("Signup Failed: " + task.Exception?.Flatten().InnerException?.Message);
-                return;
-            }
-
-            var authResultTask = task as Task<Firebase.Auth.AuthResult>;
-            if (authResultTask == null)
-            {
-                Debug.LogError("AuthResult task is null.");
-                return;
-            }
-
-            Firebase.Auth.AuthResult authResult = authResultTask.Result;
+            var authResult = await auth.CreateUserWithEmailAndPasswordAsync(email, password);
             user = authResult.User;
 
-            Debug.Log("Signup Successful! Storing name...");
+            Debug.Log("Signup Successful for: " + user.Email);
 
-            dbReference.Child("users").Child(user.UserId).Child("firstName").SetValueAsync(firstName).ContinueWith(setTask =>
-            {
-                if (setTask.IsCompletedSuccessfully)
-                {
-                    Debug.Log("First name stored successfully for " + user.Email);
-                }
-                else
-                {
-                    Debug.LogError("Failed to store first name: " + setTask.Exception?.Flatten().InnerException?.Message);
-                }
-            });
-        });
+            // ✅ Scene switch directly after success
+            SceneManager.LoadScene("SignInScene");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Signup Failed: " + ex.Message);
+        }
     }
 }
