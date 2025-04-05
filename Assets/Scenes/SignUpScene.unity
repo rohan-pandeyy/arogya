@@ -1355,6 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emailInput: {fileID: 1323492534}
   passwordInput: {fileID: 1426708957}
+  firstNameInput: {fileID: 1528358471}
 --- !u!1 &992325243
 GameObject:
   m_ObjectHideFlags: 0

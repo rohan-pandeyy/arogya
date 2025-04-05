@@ -2,7 +2,8 @@
   "project_info": {
     "project_number": "296707155400",
     "project_id": "arogya-4327f",
-    "storage_bucket": "arogya-4327f.firebasestorage.app"
+    "storage_bucket": "arogya-4327f.firebasestorage.app",
+    "firebase_url": "https://arogya-4327f-default-rtdb.firebaseio.com/"
   },
   "client": [
     {
