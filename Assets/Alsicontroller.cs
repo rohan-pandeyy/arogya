@@ -1,15 +1,15 @@
 using UnityEngine;
-using System.IO.Ports; // Ensure you have a compatible serial library
+using System.IO.Ports;
 
 public class SerialReader : MonoBehaviour
 {
-    public string portName = "COM3"; // Change to your Arduino's COM port
+    public string portName = "COM3";
     public int baudRate = 115200;
-    public GameObject cube; // Reference to the cube in the scene
-    public float rotationSpeed = 20f; // Scaling factor for rotation speed
+    public GameObject cube;
+    public float rotationSpeed = 20f;
 
     private SerialPort serialPort;
-    private float[] sensorData = new float[6]; // Array to store sensor data
+    private float[] sensorData = new float[6];
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class SerialReader : MonoBehaviour
             }
             catch (System.Exception)
             {
-                // Handle errors
+                // Optional: Debug.LogWarning("Serial read error");
             }
         }
     }
@@ -50,12 +50,10 @@ public class SerialReader : MonoBehaviour
 
     void RotateCube()
     {
-        // Use gyroscope data to rotate the cube
-        float rotateX = sensorData[3] * Time.deltaTime * rotationSpeed; // Gyro X (pitch)
-        float rotateY = sensorData[4] * Time.deltaTime * rotationSpeed; // Gyro Y (yaw)
-        float rotateZ = sensorData[5] * Time.deltaTime * rotationSpeed; // Gyro Z (roll)
+        float rotateX = sensorData[3] * Time.deltaTime * rotationSpeed;
+        float rotateY = sensorData[4] * Time.deltaTime * rotationSpeed;
+        float rotateZ = sensorData[5] * Time.deltaTime * rotationSpeed;
 
-        // Apply rotation to the cube
         cube.transform.Rotate(rotateX, rotateY, rotateZ, Space.Self);
     }
 
