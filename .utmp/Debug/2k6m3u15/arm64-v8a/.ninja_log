@@ -1,0 +1,12 @@
+# ninja log v5
+67	370	7656091217977587	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	ffbf0c874c3d696
+372	583	7656091220089502	G:/Arogya_GivingHealth/.git/arogya/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/2k6m3u15/obj/arm64-v8a/libswappywrapper.so	a7e42f04497df627
+24	1435	7656091228482778	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	f5369591b08a94f2
+16	1439	7656091228558690	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	cb47d4e046ee1cc9
+32	1472	7656091228949720	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	9303eef9ad79da8a
+58	1502	7656091229239942	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e730c4cb6714960b
+50	1540	7656091229629679	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	91fec0cd0ddc4f49
+8	1556	7656091229797542	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2a5c3ca79c1e63ba
+41	1729	7656091231572755	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	445b43e68f5d779b
+1	1761	7656091231835074	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	7bdb538887986c66
+1761	1951	7656091233765271	G:/Arogya_GivingHealth/.git/arogya/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/2k6m3u15/obj/arm64-v8a/libgame.so	1f9598293f3366d5
